@@ -3,9 +3,9 @@ import { useState } from "react";
 
 const ModalPopup = (props) => {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
   return (
     <div>
       <Button variant="primary" onClick={handleShow}>

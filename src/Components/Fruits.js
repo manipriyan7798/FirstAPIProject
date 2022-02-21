@@ -1,11 +1,25 @@
 import "./Fruits.css";
 import ModalPopup from "./Modal/ModalPopup";
 import { Button, Modal } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Fruits = (props) => {
   const [show, setShow] = useState(false);
 
+  // const [data, setData] = useState("");
+
+  // const getApi = () => {
+  //   fetch("https://run.mocky.io/v3/cfb3595d-b827-4a9c-b316-f90134a9e785")
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       console.log(json);
+  //       setData(json);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   getApi();
+  // }, []);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
@@ -13,7 +27,13 @@ const Fruits = (props) => {
       <img src={props.imageUrl} alt="" />
       <h1>{props.productName}</h1>
       <h3>{props.discountRate} </h3>
-      <Button variant="primary" onClick={handleShow}>
+      <Button
+        variant="primary"
+        onClick={() => {
+          handleShow();
+          // getApi();
+        }}
+      >
         View more
       </Button>
       <Modal show={show} onHide={handleClose}>

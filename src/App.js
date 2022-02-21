@@ -1,7 +1,18 @@
 import Fruits from "./Components/Fruits";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useEffect, useState } from "react";
 
 function App() {
+  const getApi = () => {
+    fetch("https://run.mocky.io/v3/cfb3595d-b827-4a9c-b316-f90134a9e785")
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+      });
+  };
+  useEffect(() => {
+    getApi();
+  }, []);
   return (
     <div>
       <Fruits
